@@ -1,32 +1,53 @@
 public class shopping_list
-// is this loading all the memory from main twice?
 {
     //shopping_list states
-    private node head;
-    private node middle;
-    private node tail;
-
-    public shopping_list(node head)
+    private String item_name;
+    private double quantity;
+    private shopping_list next;
+        //node 
+    public shopping_list(double quantity, String item_name) 
     {
-        this.head = head;
-    }
-    public node get_head()
-    {
-        return this.head;
+        this.quantity = quantity; 
+        this.item_name = item_name; 
+        this.next = null;
     }
 
-    public int get_data(node head)
+
+    public double get_data()
     {
-        return head.quantity;
+        return this.quantity;
     }
 
-    public void print_list(node head)
+
+    // for shopping list object
+    public void print_list()
+    {
+        
+            do {
+            System.out.println(this.quantity);
+            this.next = this.next.next;
+        } while (this != null);
+    }
+
+    public static void iterate(shopping_list head)
     {
         while (head != null)
         {
-            System.out.println(head.quantity);
-            head = head.next;
+        System.out.println(head.item_name + head.quantity);
+        head = head.next; 
         }
+    }
+
+    // may not be used !!!!
+    public static void chain(shopping_list first, shopping_list second)
+    {
+        first.next = second;
+        
+    }
+
+    public void chain(shopping_list second)
+    {
+        this.next = second;
     }
 
 }

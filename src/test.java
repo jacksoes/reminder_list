@@ -1,17 +1,30 @@
-public class test 
+
+public class test extends shopping_list
 {
+    public test(double quantity, String item_name)
+    {
+        super(21.4, "dont care");
+    }
     public static void main(String[] args) throws Exception 
     {
-        node jack = new node(10);
-        node jack1 = new node(20);
-        node jack2 = new node(30);
+        shopping_list jack = new shopping_list(10, "apple");
+        shopping_list jack1 = new shopping_list(20, " pear");
+        shopping_list jack2 = new shopping_list(30, "zukini");
 
-        jack.next = jack1;
-        jack1.next = jack2;
-        
-        shopping_list test = new shopping_list(jack);
-        
-        test.print_list(test.get_head());
+
+        //shopping_list.link(jack, jack1);
+        //shopping_list.link(jack1, jack2);
+
+        jack.chain(jack1);
+        jack1.chain(jack2);
+
+        shopping_list.iterate(jack);
+
+        //test.print_list();
+
+        //master.command_add();
+
+        //master.command_add();
     }
     
 }
